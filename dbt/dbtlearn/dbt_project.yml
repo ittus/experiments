@@ -34,6 +34,8 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   dbtlearn:
     +materialized: view
+    +post-hook:
+      - "GRANT SELECTON {{ this }} TOROLE REPORTER"
     dim:
       +materialized: table
     src:
